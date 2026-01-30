@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://8dmpjrf1hftc"]
+
+[ext_resource type="Script" uid="uid://be1pqtbbokel3" path="res://scripts/hud.gd" id="1_1etfg"]
+[ext_resource type="Texture2D" uid="uid://de3tm6jamsipo" path="res://icon.svg" id="1_8juob"]
+[ext_resource type="FontFile" uid="uid://5f21ork63ny8" path="res://fonts/Hyperspace.otf" id="1_fls4u"]
+
+[node name="GameHUD" type="CanvasLayer" unique_id=1362098179]
+script = ExtResource("1_1etfg")
+
+[node name="Score" type="Label" parent="." unique_id=753484690]
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 300.0
+offset_bottom = 80.0
+theme_override_fonts/font = ExtResource("1_fls4u")
+theme_override_font_sizes/font_size = 40
+text = "00"
+horizontal_alignment = 2
+
+[node name="HiScore" type="Label" parent="." unique_id=471558229]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -23.0
+offset_top = 25.0
+offset_right = 23.0
+offset_bottom = 80.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_fls4u")
+theme_override_font_sizes/font_size = 40
+text = "00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1794315346]
+position = Vector2(277.00003, 114)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("1_8juob")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=579876483]
+position = Vector2(217, 114)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("1_8juob")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1207464212]
+position = Vector2(155, 114)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("1_8juob")
+
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=1550819122]
+position = Vector2(91.000015, 114)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("1_8juob")
+
+[node name="Title" type="Label" parent="." unique_id=1146085263]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -135.0
+offset_top = -59.0
+offset_right = 135.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_fls4u")
+theme_override_font_sizes/font_size = 24
+text = "© 1979 Asteroids, Inc"
+uppercase = true

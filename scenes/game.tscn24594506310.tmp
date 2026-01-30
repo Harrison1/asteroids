@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://vq5qlf4fwb2t"]
+
+[ext_resource type="PackedScene" uid="uid://cs3svuag83juk" path="res://scenes/player.tscn" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://7ygmy5j4e3kq" path="res://scenes/asteroid.tscn" id="2_yqjtg"]
+
+[node name="Game" type="Node2D" unique_id=2083630120]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=125857467]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="Player" parent="." unique_id=1861639559 instance=ExtResource("1_uwrxv")]
+position = Vector2(960, 540)
+rotation = -1.5707964
+
+[node name="Asteroid" parent="." unique_id=333494792 instance=ExtResource("2_yqjtg")]
+position = Vector2(89, 604)
