@@ -3,35 +3,44 @@ extends Node
 
 @export var asteroid_scene: PackedScene
 @export var player_scene: PackedScene
+@export var ufo_scene: PackedScene
 
-var game_active := true
-var spawn_timer := 2.0
+var asteroid_spawn_timer := 2.0
+var ufo_spawn_timer := 10.0
 
 @onready var screen_size = get_viewport().size
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Global.player_died.connect(spawn_children.call_deferred)
-	Global.spawn_child_asteroids.connect(life_lost)
+	Global.player_died.connect(life_lost.call_deferred)
+	Global.spawn_child_asteroids.connect(spawn_children.call_deferred)
 	spawn_player()
 	spawn_asteroids()
+	spawn_ufos()
 
 
 func life_lost() -> void:
-	Global.lives -= 1
-	if Global.lives == 0:
-		game_active = false
+	Global.player_lives -= 1
+	if Global.player_lives == 0:
+		Global.is_game_active = false
 	else:
 		await get_tree().create_timer(1.0).timeout
 		spawn_player()
 
 
 func spawn_asteroids() -> void:
-	while game_active:
-		await get_tree().create_timer(spawn_timer).timeout
+	while Global.is_game_active:
+		await get_tree().create_timer(asteroid_spawn_timer).timeout
 		var asteroid = asteroid_scene.instantiate()
 		add_child(asteroid)
+
+
+func spawn_ufos() -> void:
+	while Global.is_game_active:
+		await get_tree().create_timer(ufo_spawn_timer).timeout
+		var ufo = ufo_scene.instantiate()
+		add_child(ufo)
 
 
 func spawn_children(pos: Vector2, size: Global.Size, vel: Vector2) -> void:

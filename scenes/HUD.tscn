@@ -6,6 +6,7 @@
 
 [node name="GameHUD" type="CanvasLayer" unique_id=1362098179]
 script = ExtResource("1_1etfg")
+life_texture = ExtResource("1_8juob")
 
 [node name="Score" type="Label" parent="." unique_id=753484690]
 offset_left = 25.0
@@ -33,21 +34,25 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1794315346]
+visible = false
 position = Vector2(277.00003, 114)
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("1_8juob")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=579876483]
+visible = false
 position = Vector2(217, 114)
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("1_8juob")
 
 [node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1207464212]
+visible = false
 position = Vector2(155, 114)
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("1_8juob")
 
 [node name="Sprite2D4" type="Sprite2D" parent="." unique_id=1550819122]
+visible = false
 position = Vector2(91.000015, 114)
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("1_8juob")

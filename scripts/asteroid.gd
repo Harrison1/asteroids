@@ -109,7 +109,3 @@ func _on_area_entered(area: Area2D) -> void:
 				Global.update_score.emit(20)
 				Global.spawn_child_asteroids.emit(position, Global.Size.SIZE_2, velocity)
 				queue_free()
-
-
-# large saucer: 200pts
-# small saucer: 1000pts

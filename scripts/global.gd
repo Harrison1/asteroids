@@ -11,4 +11,5 @@ signal update_score(points: int)
 
 enum Size {SIZE_1, SIZE_2, SIZE_3}
 
+var is_game_active := true
 var player_lives := 4

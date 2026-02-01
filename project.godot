@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Asteroids"
 config/description="Remake of Asteroids originally created in 1979"
-run/main_scene="uid://vq5qlf4fwb2t"
+run/main_scene="uid://djxb6v4ajhypy"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -25,6 +25,10 @@ Global="*uid://dk6wwmbkpritm"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
+
+[global_group]
+
+Enemy=""
 
 [input]
 

@@ -3,8 +3,10 @@
 [ext_resource type="Script" uid="uid://bjr383gxkret8" path="res://scripts/game_manager.gd" id="1_hwd4i"]
 [ext_resource type="PackedScene" uid="uid://7ygmy5j4e3kq" path="res://scenes/asteroid.tscn" id="2_glms7"]
 [ext_resource type="PackedScene" uid="uid://cs3svuag83juk" path="res://scenes/player.tscn" id="3_udu3i"]
+[ext_resource type="PackedScene" uid="uid://ieyqnnvsdhg6" path="res://scenes/ufo.tscn" id="4_oo155"]
 
 [node name="GameManager" type="Node" unique_id=159651351]
 script = ExtResource("1_hwd4i")
 asteroid_scene = ExtResource("2_glms7")
 player_scene = ExtResource("3_udu3i")
+ufo_scene = ExtResource("4_oo155")

@@ -17,7 +17,7 @@ radius = 30.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_qhqgy"]
 radius = 30.0
 
-[node name="Player" type="CharacterBody2D" unique_id=1861639559]
+[node name="Player" type="CharacterBody2D" unique_id=1861639559 groups=["player"]]
 script = ExtResource("1_v7wfm")
 missile_scene = ExtResource("2_oesai")
 

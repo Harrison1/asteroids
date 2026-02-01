@@ -8,12 +8,17 @@ const ROTATION_SPEED = 2.5
 
 @export var missile_scene: PackedScene
 
+var invincible := true
 var can_shoot := true
 var rotation_direction := 0.0
 
 @onready var screen_size = get_viewport_rect().size
 @onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
 
+
+func _ready() -> void:
+	await get_tree().create_timer(0.5).timeout
+	invincible = false
 
 func get_input():
 	var input_strength = Input.get_action_strength("thrust")
@@ -55,7 +60,8 @@ func screen_wrap() -> void:
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	if area is Asteroid:
+	if invincible: return
+	if area.is_in_group("Enemy"):
 		Global.player_died.emit()
 		queue_free()
 		#hide()
