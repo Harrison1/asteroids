@@ -104,11 +104,18 @@ text = "Paused"
 uppercase = true
 
 [node name="Menu" type="Control" parent="." unique_id=1140986257]
-visible = false
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Resume" type="Button" parent="Menu" unique_id=172981346]
 layout_mode = 1
@@ -117,10 +124,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 790.0
-offset_top = 390.0
-offset_right = 1090.0
-offset_bottom = 445.0
+offset_left = -150.0
+offset_top = -120.0
+offset_right = 150.0
+offset_bottom = -65.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_myx47")
@@ -139,10 +146,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 790.0
-offset_top = 490.0
-offset_right = 1090.0
-offset_bottom = 545.0
+offset_left = -150.0
+offset_top = -20.0
+offset_right = 150.0
+offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_myx47")
@@ -161,10 +168,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 790.0
-offset_top = 590.0
-offset_right = 1090.0
-offset_bottom = 645.0
+offset_left = -150.0
+offset_top = 80.0
+offset_right = 150.0
+offset_bottom = 135.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_myx47")
@@ -179,6 +186,7 @@ script = ExtResource("3_kukqi")
 scene_name = "main_menu"
 
 [node name="ControlsMenu" type="Control" parent="." unique_id=2143355126]
+visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -192,14 +200,14 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Th" type="Control" parent="ControlsMenu" unique_id=1446940208]
+[node name="Thrust" type="Control" parent="ControlsMenu" unique_id=1446940208]
 anchors_preset = 0
 offset_left = -87.0
 offset_top = 13.0
 offset_right = -87.0
 offset_bottom = 13.0
 
-[node name="Thrust" type="Label" parent="ControlsMenu/Th" unique_id=897525553]
+[node name="Thrust" type="Label" parent="ControlsMenu/Thrust" unique_id=897525553]
 layout_mode = 0
 offset_left = -85.0
 offset_top = -107.0
@@ -211,11 +219,11 @@ text = "Thrust"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Key" type="Sprite2D" parent="ControlsMenu/Th" unique_id=468756784]
+[node name="Key" type="Sprite2D" parent="ControlsMenu/Thrust" unique_id=468756784]
 scale = Vector2(0.643, 0.6)
 texture = ExtResource("4_1s2dm")
 
-[node name="W" type="Label" parent="ControlsMenu/Th" unique_id=1616723495]
+[node name="W" type="Label" parent="ControlsMenu/Thrust" unique_id=1616723495]
 layout_mode = 0
 offset_left = -10.0
 offset_top = -29.0
@@ -227,14 +235,14 @@ text = "W"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Le" type="Control" parent="ControlsMenu" unique_id=584696472]
+[node name="Left" type="Control" parent="ControlsMenu" unique_id=584696472]
 anchors_preset = 0
 offset_left = -232.0
 offset_top = 163.0
 offset_right = -232.0
 offset_bottom = 163.0
 
-[node name="Left" type="Label" parent="ControlsMenu/Le" unique_id=1945019315]
+[node name="Left" type="Label" parent="ControlsMenu/Left" unique_id=1945019315]
 layout_mode = 0
 offset_left = -55.0
 offset_top = -107.0
@@ -246,11 +254,11 @@ text = "Left"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Key" type="Sprite2D" parent="ControlsMenu/Le" unique_id=681644463]
+[node name="Key" type="Sprite2D" parent="ControlsMenu/Left" unique_id=681644463]
 scale = Vector2(0.643, 0.6)
 texture = ExtResource("4_1s2dm")
 
-[node name="A" type="Label" parent="ControlsMenu/Le" unique_id=1409987662]
+[node name="A" type="Label" parent="ControlsMenu/Left" unique_id=1409987662]
 layout_mode = 0
 offset_left = -10.0
 offset_top = -29.0
@@ -262,14 +270,14 @@ text = "A"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Ri" type="Control" parent="ControlsMenu" unique_id=1016780895]
+[node name="Right" type="Control" parent="ControlsMenu" unique_id=1016780895]
 anchors_preset = 0
 offset_left = 42.0
 offset_top = 163.0
 offset_right = 42.0
 offset_bottom = 163.0
 
-[node name="Right" type="Label" parent="ControlsMenu/Ri" unique_id=353724882]
+[node name="Right" type="Label" parent="ControlsMenu/Right" unique_id=353724882]
 layout_mode = 0
 offset_left = -62.0
 offset_top = -107.0
@@ -281,11 +289,11 @@ text = "Right"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Key" type="Sprite2D" parent="ControlsMenu/Ri" unique_id=945447796]
+[node name="Key" type="Sprite2D" parent="ControlsMenu/Right" unique_id=945447796]
 scale = Vector2(0.643, 0.6)
 texture = ExtResource("4_1s2dm")
 
-[node name="D" type="Label" parent="ControlsMenu/Ri" unique_id=1996848766]
+[node name="D" type="Label" parent="ControlsMenu/Right" unique_id=1996848766]
 layout_mode = 0
 offset_left = -10.0
 offset_top = -29.0
@@ -297,18 +305,18 @@ text = "D"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Sp" type="Control" parent="ControlsMenu" unique_id=755295120]
+[node name="Space" type="Control" parent="ControlsMenu" unique_id=755295120]
 anchors_preset = 0
 offset_left = 350.0
 offset_top = 310.0
 offset_right = 350.0
 offset_bottom = 310.0
 
-[node name="Shoot" type="Label" parent="ControlsMenu/Sp" unique_id=803881303]
+[node name="Shoot" type="Label" parent="ControlsMenu/Space" unique_id=803881303]
 layout_mode = 0
-offset_left = -55.0
+offset_left = -63.0
 offset_top = -107.0
-offset_right = 62.0
+offset_right = 83.0
 offset_bottom = -47.0
 theme_override_fonts/font = ExtResource("2_myx47")
 theme_override_font_sizes/font_size = 48
@@ -316,11 +324,11 @@ text = "Shoot"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Key" type="Sprite2D" parent="ControlsMenu/Sp" unique_id=85767576]
+[node name="Key" type="Sprite2D" parent="ControlsMenu/Space" unique_id=85767576]
 scale = Vector2(0.643, 0.6)
 texture = ExtResource("5_88e76")
 
-[node name="Space" type="Label" parent="ControlsMenu/Sp" unique_id=1350272487]
+[node name="Space" type="Label" parent="ControlsMenu/Space" unique_id=1350272487]
 layout_mode = 0
 offset_left = -42.0
 offset_top = -20.0
@@ -377,11 +385,11 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_v4r4p")
 theme_override_styles/focus = SubResource("StyleBoxFlat_kukqi")
 text = "Back"
 
-[node name="Click" type="AudioStreamPlayer2D" parent="." unique_id=1432757557]
+[node name="Click" type="AudioStreamPlayer" parent="." unique_id=535400377]
 stream = ExtResource("4_7l7mv")
 volume_db = 2.0
 
-[node name="Hover" type="AudioStreamPlayer2D" parent="." unique_id=1474633067]
+[node name="Hover" type="AudioStreamPlayer" parent="." unique_id=268634173]
 stream = ExtResource("5_7l7mv")
 volume_db = 10.0
 

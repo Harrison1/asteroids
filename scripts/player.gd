@@ -20,8 +20,8 @@ var tween: Tween
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
 @onready var screen_size = get_viewport_rect().size
-@onready var shoot_sfx: AudioStreamPlayer2D = $ShootSFX
-@onready var thrust: AudioStreamPlayer2D = $Thrust
+@onready var shoot_sfx: AudioStreamPlayer = $ShootSFX
+@onready var thrust: AudioStreamPlayer = $Thrust
 
 
 func _ready() -> void:
@@ -53,13 +53,13 @@ func _input(event: InputEvent) -> void:
 		if tween and tween.is_running():
 			tween.stop()
 		thrust.play()
-		thrust.volume_db = 10.0
+		thrust.volume_db = 8.0
 
 	if event.is_action_released("thrust"):
 		animated_sprite_2d.frame = 0
 		if thrust.playing:
 			tween = create_tween()
-			tween.tween_property(thrust, "volume_db", -80.0, 6.0)
+			tween.tween_property(thrust, "volume_db", -80.0, 3.0)
 			tween.tween_callback(thrust.stop)
 
 

@@ -1,8 +1,8 @@
 extends CanvasLayer
 
-@onready var click: AudioStreamPlayer2D = $Click
+@onready var click: AudioStreamPlayer = $Click
 @onready var controls_menu: Control = $ControlsMenu
-@onready var hover: AudioStreamPlayer2D = $Hover
+@onready var hover: AudioStreamPlayer = $Hover
 @onready var menu: Control = $Menu
 
 

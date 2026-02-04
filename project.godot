@@ -20,12 +20,13 @@ config/icon="res://icon.svg"
 
 [audio]
 
-buses/default_bus_layout="uid://cx64vsf4c2dcs"
+buses/default_bus_layout=""
 
 [autoload]
 
 Global="*uid://dk6wwmbkpritm"
 Music="*uid://ddsrcldwnlh4v"
+UIButtonSFX="*uid://cv4okgy5pmmsg"
 
 [display]
 

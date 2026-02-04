@@ -196,7 +196,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_v3hpu")
 text = "Retry"
 script = ExtResource("4_racf3")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Control" unique_id=1900186656]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control" unique_id=1419411891]
 stream = ExtResource("7_8bugq")
 volume_db = 10.0
 
@@ -204,7 +204,7 @@ volume_db = 10.0
 active = false
 libraries/ = SubResource("AnimationLibrary_2jtsn")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1021775357]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1183082191]
 stream = ExtResource("6_v3hpu")
 volume_db = 10.0
 

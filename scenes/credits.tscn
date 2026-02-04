@@ -5,6 +5,7 @@
 [ext_resource type="FontFile" uid="uid://b5mfiah7sch5c" path="res://fonts/HyperspaceBold.otf" id="2_0ctdu"]
 [ext_resource type="Script" uid="uid://duk3bm45hrwli" path="res://scripts/change_to_scene.gd" id="2_2fbfq"]
 [ext_resource type="AudioStream" uid="uid://nvy44yrlk3f2" path="res://audio/sfx/8BitSciFiSounds/user_interface_item.wav" id="4_2fbfq"]
+[ext_resource type="FontFile" uid="uid://b7mbgodu20bwt" path="res://fonts/HyperspaceItalic.otf" id="5_mah5v"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0bpdh"]
 
@@ -83,6 +84,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("1_0bpdh")
 theme_override_fonts/bold_font = ExtResource("2_0ctdu")
+theme_override_fonts/italics_font = ExtResource("5_mah5v")
 theme_override_font_sizes/normal_font_size = 24
 theme_override_font_sizes/bold_font_size = 24
 theme_override_font_sizes/bold_italics_font_size = 24
@@ -91,34 +93,88 @@ theme_override_font_sizes/mono_font_size = 24
 bbcode_enabled = true
 text = "[center]
 [b]Music[/b]
-\"Song Title\"
-by
-Artist
-service: Soundly
+\"Retro Synths\" by [url=https://www.patreon.com/holizna]Holizna[/url]
+Album: [url=https://opengameart.org/content/retro-wave-collection]Retro Wave 2[/url]
+Service: [url=https://opengameart.org/]OpenGameArt[/url]
 [/center]
 
 [center]
 [b]SFX[/b]
-\"Title\" by Originator
-Library: FReeSound CC0
-Service: Soundly
+\"AlienAbduction\" by [url=https://opengameart.org/users/ekmaudio]ekmaudio[/url]
+Library: [url=https://opengameart.org/content/8-bit-sci-fi-sounds]8 Bit Sci-Fi Sounds[/url]
+Service: [url=https://opengameart.org/]OpenGameArt[/url]
+
+\"Explosion2\" by [url=https://opengameart.org/users/ekmaudio]ekmaudio[/url]
+Library: [url=https://opengameart.org/content/8-bit-sci-fi-sounds]8 Bit Sci-Fi Sounds[/url]
+Service: [url=https://opengameart.org/]OpenGameArt[/url]
+
+\"Gameover\" by [url=https://opengameart.org/users/ekmaudio]ekmaudio[/url]
+Library: [url=https://opengameart.org/content/8-bit-sci-fi-sounds]8 Bit Sci-Fi Sounds[/url]
+Service: [url=https://opengameart.org/]OpenGameArt[/url]
+
+\"retro_laser_01\" by [url=https://opengameart.org/users/rubberduck]rubberduck[/url]
+Library: [url=https://opengameart.org/content/50-cc0-sci-fi-sfx]50 CC0 Sci-Fi SFX[/url]
+Service: [url=https://opengameart.org/]OpenGameArt[/url]
+
+\"Retro, Laser Gun Shot\" by LilMati
+Library: FreeSound CC0
+Service: [url=https://getsoundly.com/]Soundly[/url]
+
+\"ShipExploding\" by [url=https://opengameart.org/users/ekmaudio]ekmaudio[/url]
+Library: [url=https://opengameart.org/content/8-bit-sci-fi-sounds]8 Bit Sci-Fi Sounds[/url]
+Service: [url=https://opengameart.org/]OpenGameArt[/url]
+
+\"Thrust Loop\" by unfa
+Library: FreeSound CC0
+Service: [url=https://getsoundly.com/]Soundly[/url]
+
+\"UserInterfaceItem\" by [url=https://opengameart.org/users/ekmaudio]ekmaudio[/url]
+Library: [url=https://opengameart.org/content/8-bit-sci-fi-sounds]8 Bit Sci-Fi Sounds[/url]
+Service: [url=https://opengameart.org/]OpenGameArt[/url]
+
+\"UserInterfaceItem3\" by [url=https://opengameart.org/users/ekmaudio]ekmaudio[/url]
+Library: [url=https://opengameart.org/content/8-bit-sci-fi-sounds]8 Bit Sci-Fi Sounds[/url]
+Service: [url=https://opengameart.org/]OpenGameArt[/url]
+
+\"Vending Machine Coin Insert\" by Krokulator
+Library: FreeSound CC0
+Service: [url=https://getsoundly.com/]Soundly[/url]
+
+[font_size=14]
+8 Bit Sci-Fi Sounds provided under the under the [url=https://creativecommons.org/licenses/by/4.0/]CC BY 4.0 License[/url].
+Soundly [url=https://getsoundly.com/faq/how-can-i-use-the-freesound-library/]FreeSound CC0 License web page[/url]
+[i]Slight pitch changes made to some SFX. Other than pitch changes, no changes were made altering the audio.[/i]
+[/font_size]
+[/center]
+
+[center]
+[b]Typography[/b]
+[url=https://www.pixelsagas.com/?download=hyperspace]Hyperspace[/url] by [url=https://www.pixelsagas.com/]Pixel Sagas[/url]
 [/center]
 
 [center]
 [b]Video References[/b]
-[url=https://www.youtube.com/watch?v=w60sfReTsRA]\"Classic Game Room - ASTEROIDS arcade game review\"[/url]
-by
-[url=https://www.youtube.com/@classicgameroom]Classic Game Room[/url]
-Service: [url=https://www.youtube.com/]YouTube[/url]
-
 [url=https://www.youtube.com/watch?v=9Ydu8UhIjeU]\"Arcade Game: Asteroids (1979 Atari)\"[/url]
 by
 [url=https://www.youtube.com/@oldclassicgame]Old Classic Retro Gaming[/url]
 Service: [url=https://www.youtube.com/]YouTube[/url]
+
+[url=https://www.youtube.com/watch?v=w60sfReTsRA]\"Classic Game Room - ASTEROIDS arcade game review\"[/url]
+by
+[url=https://www.youtube.com/@classicgameroom]Classic Game Room[/url]
+Service: [url=https://www.youtube.com/]YouTube[/url]
+[/center]
+
+[center]
+[b]Tools[/b]
+[url=https://godotengine.org/]Godot 4.6[/url]
+[url=https://www.aseprite.org/]Aseprite[/url]
+[url=https://www.audacityteam.org/]Audacity[/url]
+[url=https://getsoundly.com/]Soundly[/url]
 [/center]
 "
 
-[node name="Hover" type="AudioStreamPlayer2D" parent="." unique_id=1508693503]
+[node name="Hover" type="AudioStreamPlayer" parent="." unique_id=443464099]
 stream = ExtResource("4_2fbfq")
 volume_db = 10.0
 

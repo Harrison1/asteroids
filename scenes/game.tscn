@@ -9,9 +9,15 @@
 
 [node name="GameManager" parent="." unique_id=159651351 instance=ExtResource("1_yqjtg")]
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1153056305]
-offset_right = 1920.0
-offset_bottom = 1080.0
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=502199413]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1490970810]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="HUD" parent="." unique_id=920375075 instance=ExtResource("3_lbhrr")]

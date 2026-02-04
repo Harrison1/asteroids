@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 
-@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var new_hi_score: Label = $NewHiScore
 @onready var score: Label = $Score
@@ -13,7 +13,7 @@ func _ready() -> void:
 
 func game_over() -> void:
 	visible = true
-	audio_stream_player_2d.play()
+	audio_stream_player.play()
 	score.text = "Score:" + str(Global.score)
 	if Global.score > Global.hiscore:
 		Global.hiscore = Global.score

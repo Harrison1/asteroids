@@ -26,14 +26,13 @@ shape = SubResource("CircleShape2D_1aa4c")
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=723301787]
 rect = Rect2(-45, -30, 90, 60)
 
-[node name="ShootSFX" type="AudioStreamPlayer2D" parent="." unique_id=255149382]
+[node name="ShootSFX" type="AudioStreamPlayer" parent="." unique_id=1106621620]
 stream = ExtResource("5_vvsiw")
 volume_db = 4.0
-bus = &"SFX"
 
-[node name="UFOAbductionSFX" type="AudioStreamPlayer2D" parent="." unique_id=1801652893]
+[node name="UFOAbductionSFX" type="AudioStreamPlayer" parent="." unique_id=363116862]
 stream = ExtResource("6_linyg")
-volume_db = -4.0
+volume_db = -6.0
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

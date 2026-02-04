@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bk66s008ylp4r" path="res://scripts/player.gd" id="1_v7wfm"]
 [ext_resource type="PackedScene" uid="uid://ovn0h0apte0o" path="res://scenes/missile.tscn" id="2_oesai"]
-[ext_resource type="PackedScene" uid="uid://5mqppxnx5jrl" path="res://scenes/explosion.tscn" id="2_qlg0r"]
+[ext_resource type="PackedScene" uid="uid://heq05wjmrl80" path="res://scenes/ship_explosion.tscn" id="2_smehm"]
 [ext_resource type="Texture2D" uid="uid://bnira1kkmst3f" path="res://assets/ship.png" id="4_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://cyqp458ya3bpf" path="res://assets/circle.png" id="5_fjrip"]
 [ext_resource type="AudioStream" uid="uid://dw8qc8bvl5e4" path="res://audio/sfx/Soundly/retro_laser.wav" id="5_qlg0r"]
@@ -96,7 +96,7 @@ _data = {
 
 [node name="Player" type="CharacterBody2D" unique_id=1861639559 groups=["player"]]
 script = ExtResource("1_v7wfm")
-explosion_scene = ExtResource("2_qlg0r")
+explosion_scene = ExtResource("2_smehm")
 missile_scene = ExtResource("2_oesai")
 metadata/_edit_group_ = true
 
@@ -105,7 +105,7 @@ visible = false
 position = Vector2(-13, 0)
 amount = 24
 texture = ExtResource("5_fjrip")
-lifetime = 0.09999999999999999
+lifetime = 0.1
 emission_shape = 1
 emission_sphere_radius = 2.0
 gravity = Vector2(0, 0)
@@ -148,16 +148,15 @@ shape = SubResource("CircleShape2D_oesai")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1478114016]
 shape = SubResource("CircleShape2D_smehm")
 
-[node name="ShootSFX" type="AudioStreamPlayer2D" parent="." unique_id=923752166]
+[node name="ShootSFX" type="AudioStreamPlayer" parent="." unique_id=1523309909]
 stream = ExtResource("5_qlg0r")
 volume_db = -8.0
-bus = &"SFX"
 
-[node name="Thrust" type="AudioStreamPlayer2D" parent="." unique_id=1650432770]
+[node name="Thrust" type="AudioStreamPlayer" parent="." unique_id=226714661]
 stream = ExtResource("6_tuyoq")
 volume_db = -80.0
+pitch_scale = 0.5
 autoplay = true
-bus = &"SFX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1489606341]
 libraries/ = SubResource("AnimationLibrary_fjrip")

@@ -10,8 +10,8 @@ var speed := 100.0
 var velocity = Vector2(-1.0, 0.0)
 
 @onready var screen_size = get_viewport_rect().size
-@onready var shoot_sfx: AudioStreamPlayer2D = $ShootSFX
-@onready var ufo_abduction_sfx: AudioStreamPlayer2D = $UFOAbductionSFX
+@onready var shoot_sfx: AudioStreamPlayer = $ShootSFX
+@onready var ufo_abduction_sfx: AudioStreamPlayer = $UFOAbductionSFX
 
 
 ## Called when the node enters the scene tree for the first time.

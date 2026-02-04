@@ -2,7 +2,7 @@
 
 [ext_resource type="AudioStream" uid="uid://dqdgqrshke6d2" path="res://audio/music/retro_synths.ogg" id="1_4fomv"]
 
-[node name="Music" type="AudioStreamPlayer2D" unique_id=396124388]
+[node name="Music" type="AudioStreamPlayer" unique_id=1105731617]
 stream = ExtResource("1_4fomv")
+volume_db = -5.0
 autoplay = true
-bus = &"Music"

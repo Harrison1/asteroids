@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://heq05wjmrl80"]
+
+[ext_resource type="Texture2D" uid="uid://b2o2yn30wo45u" path="res://assets/ship_piece.png" id="1_i4euy"]
+[ext_resource type="Script" uid="uid://divfk7ch0gs5s" path="res://scripts/ship_explosion.gd" id="1_leexa"]
+[ext_resource type="AudioStream" uid="uid://crimjtysv1cuq" path="res://audio/sfx/8BitSciFiSounds/ship_exploding.wav" id="2_leexa"]
+
+[sub_resource type="Gradient" id="Gradient_i4euy"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="ShipExplosion" type="Node2D" unique_id=200366328]
+script = ExtResource("1_leexa")
+
+[node name="Piece1" type="CPUParticles2D" parent="." unique_id=367544640]
+position = Vector2(-16, 0)
+amount = 1
+texture = ExtResource("1_i4euy")
+explosiveness = 1.0
+direction = Vector2(-1, -1)
+spread = 10.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 200.0
+initial_velocity_max = 300.0
+angular_velocity_min = 100.0
+angular_velocity_max = 300.0
+angle_min = -25.0
+angle_max = -25.0
+
+[node name="Piece2" type="CPUParticles2D" parent="." unique_id=1774778556]
+position = Vector2(16, 0)
+amount = 1
+texture = ExtResource("1_i4euy")
+explosiveness = 1.0
+direction = Vector2(1, -1)
+spread = 10.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 200.0
+initial_velocity_max = 300.0
+angular_velocity_min = 100.0
+angular_velocity_max = 300.0
+angle_min = 25.0
+angle_max = 25.0
+
+[node name="Piece3" type="CPUParticles2D" parent="." unique_id=443404055]
+position = Vector2(0, 16)
+amount = 1
+texture = ExtResource("1_i4euy")
+explosiveness = 1.0
+direction = Vector2(0, 1)
+spread = 10.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 200.0
+initial_velocity_max = 300.0
+angular_velocity_min = 100.0
+angular_velocity_max = 300.0
+angle_min = 90.0
+angle_max = 90.0
+scale_amount_min = 0.6
+scale_amount_max = 0.6
+
+[node name="Piece4" type="CPUParticles2D" parent="." unique_id=812534050]
+position = Vector2(0, 16)
+amount = 1
+texture = ExtResource("1_i4euy")
+explosiveness = 1.0
+direction = Vector2(0.5, 0.5)
+spread = 10.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 200.0
+initial_velocity_max = 300.0
+angular_velocity_min = 100.0
+angular_velocity_max = 300.0
+angle_min = 90.0
+angle_max = 90.0
+scale_amount_min = 0.4
+scale_amount_max = 0.4
+
+[node name="Piece5" type="CPUParticles2D" parent="." unique_id=487655112]
+position = Vector2(0, 16)
+amount = 1
+texture = ExtResource("1_i4euy")
+explosiveness = 1.0
+direction = Vector2(-0.5, 0.5)
+spread = 10.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 200.0
+initial_velocity_max = 300.0
+angular_velocity_min = 100.0
+angular_velocity_max = 300.0
+angle_min = 90.0
+angle_max = 90.0
+scale_amount_min = 0.4
+scale_amount_max = 0.4
+
+[node name="Piece6" type="CPUParticles2D" parent="." unique_id=1160617252]
+position = Vector2(0, 16)
+amount = 1
+texture = ExtResource("1_i4euy")
+explosiveness = 1.0
+direction = Vector2(-0.5, -0.5)
+spread = 10.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 200.0
+initial_velocity_max = 300.0
+angular_velocity_min = 100.0
+angular_velocity_max = 300.0
+angle_min = 90.0
+angle_max = 90.0
+scale_amount_min = 0.4
+scale_amount_max = 0.4
+
+[node name="Piece7" type="CPUParticles2D" parent="." unique_id=184207901]
+position = Vector2(0, 16)
+amount = 1
+texture = ExtResource("1_i4euy")
+explosiveness = 1.0
+direction = Vector2(0.5, -0.5)
+spread = 10.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 200.0
+initial_velocity_max = 300.0
+angular_velocity_min = 100.0
+angular_velocity_max = 300.0
+angle_min = 90.0
+angle_max = 90.0
+scale_amount_min = 0.4
+scale_amount_max = 0.4
+
+[node name="Particles" type="CPUParticles2D" parent="." unique_id=1625757856]
+emitting = false
+amount = 32
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+scale_amount_min = 8.0
+scale_amount_max = 8.0
+color_ramp = SubResource("Gradient_i4euy")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1431116303]
+stream = ExtResource("2_leexa")
+autoplay = true
+
+[connection signal="finished" from="Particles" to="." method="_on_particles_finished"]

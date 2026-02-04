@@ -1,12 +1,13 @@
 extends Node2D
 
-@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+
 @onready var particles: CPUParticles2D = $Particles
 
 
+# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	audio_stream_player.pitch_scale = randf_range(0.5, 1.5)
 	particles.emitting = true
+
 
 func _on_particles_finished() -> void:
 	queue_free()

@@ -26,7 +26,9 @@ func life_lost() -> void:
 		Global.is_game_active = false
 		Global.game_over.emit()
 	else:
+		Engine.time_scale = 0.5
 		await get_tree().create_timer(1.0).timeout
+		Engine.time_scale = 1.0
 		spawn_player()
 
 

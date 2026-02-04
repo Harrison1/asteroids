@@ -7,5 +7,6 @@ func _ready() -> void:
 
 
 func _on_pressed() -> void:
+	UIButtonSFX.on_click()
 	Global.reset_stats()
 	get_tree().reload_current_scene.call_deferred()

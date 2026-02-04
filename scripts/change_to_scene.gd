@@ -10,6 +10,7 @@ func _ready() -> void:
 
 func _on_pressed() -> void:
 	if scene_name:
+		UIButtonSFX.on_click()
 		var next_scene = "res://scenes/" + scene_name + ".tscn"
 		get_tree().paused = false
 		get_tree().change_scene_to_file(next_scene)

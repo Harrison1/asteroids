@@ -2,8 +2,8 @@ extends Button
 
 
 @export var animation_player: AnimationPlayer
-@export var coin: AudioStreamPlayer2D
-@export var hover: AudioStreamPlayer2D
+@export var coin: AudioStreamPlayer
+@export var hover: AudioStreamPlayer
 @export var scene_name := "game"
 
 

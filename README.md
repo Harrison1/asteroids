@@ -27,8 +27,14 @@ Remake of Asteroids in Godot
 | YouTube | [Arcade Game: Asteroids (1979 Atari)](https://www.youtube.com/watch?v=9Ydu8UhIjeU) | [Old Classic Retro Gaming](https://www.youtube.com/@oldclassicgame) |
 | YouTube | [Classic Game Room - ASTEROIDS arcade game review](https://www.youtube.com/watch?v=w60sfReTsRA) | [Classic Game Room](https://www.youtube.com/@classicgameroom) |
 
+### Typography Font
+| Title | Author |
+| ----- | ------ |
+| [Hyperspace](https://www.pixelsagas.com/?download=hyperspace) | [Pixel Sagas](https://www.pixelsagas.com/) |
+
+
 ### Tools
-* [Godot 4.5.1](https://godotengine.org/)
+* [Godot 4.6](https://godotengine.org/)
 * [Aseprite](https://www.aseprite.org/)
 * [Audacity](https://www.audacityteam.org/)
 * [Soundly](https://getsoundly.com/)

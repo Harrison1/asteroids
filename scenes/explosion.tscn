@@ -22,7 +22,7 @@ scale_amount_min = 8.0
 scale_amount_max = 8.0
 color_ramp = SubResource("Gradient_3el85")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=482074472]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=207285584]
 stream = ExtResource("2_aw4cw")
 volume_db = -7.0
 autoplay = true

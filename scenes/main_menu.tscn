@@ -84,12 +84,15 @@ _data = {
 [node name="MainMenu" type="Node2D" unique_id=378268500]
 script = ExtResource("1_oa1go")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1953362289]
-offset_right = 1920.0
-offset_bottom = 1080.0
-color = Color(0, 0, 0, 1)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1522757090]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1953362289]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="HiScore" type="Label" parent="CanvasLayer" unique_id=1792829534]
 anchors_preset = 5
@@ -177,11 +180,10 @@ uppercase = true
 libraries/ = SubResource("AnimationLibrary_8ln24")
 autoplay = &"Insert Coin Flash"
 
-[node name="Coin" type="AudioStreamPlayer2D" parent="." unique_id=1542821179]
+[node name="Coin" type="AudioStreamPlayer" parent="." unique_id=338125642]
 stream = ExtResource("5_8ln24")
-bus = &"SFX"
 
-[node name="Hover" type="AudioStreamPlayer2D" parent="." unique_id=1450414915]
+[node name="Hover" type="AudioStreamPlayer" parent="." unique_id=1934841377]
 stream = ExtResource("6_rtw2f")
 volume_db = 10.0
 

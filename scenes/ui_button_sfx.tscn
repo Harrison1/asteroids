@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cv4okgy5pmmsg"]
+
+[ext_resource type="Script" uid="uid://bialfhe8024el" path="res://scripts/ui_button_sfx.gd" id="1_ao72t"]
+[ext_resource type="AudioStream" uid="uid://covsain1c1lit" path="res://audio/sfx/8BitSciFiSounds/user_interface_item_3.wav" id="1_tw2sn"]
+
+[node name="UIButtonSFX" type="Node" unique_id=303081949]
+script = ExtResource("1_ao72t")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1835858879]
+stream = ExtResource("1_tw2sn")
