@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://ovn0h0apte0o"]
 
 [ext_resource type="Script" uid="uid://bn026ipkda4wl" path="res://scripts/missile.gd" id="1_6cx5e"]
-[ext_resource type="Texture2D" uid="uid://de3tm6jamsipo" path="res://icon.svg" id="1_np454"]
+[ext_resource type="Texture2D" uid="uid://cyqp458ya3bpf" path="res://assets/circle.png" id="2_6cx5e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6cx5e"]
-radius = 20.0
+radius = 8.0
 
 [sub_resource type="Curve" id="Curve_6cx5e"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -19,23 +19,25 @@ script = ExtResource("1_6cx5e")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1671374187]
 rotation = 1.5707964
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_np454")
+texture = ExtResource("2_6cx5e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=47328033]
 shape = SubResource("CircleShape2D_6cx5e")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1517853681]
 amount = 24
+texture = ExtResource("2_6cx5e")
 lifetime = 0.1
 emission_shape = 1
 emission_sphere_radius = 2.0
 gravity = Vector2(0, 0)
-scale_amount_min = 7.0
-scale_amount_max = 7.0
+scale_amount_min = 0.15
+scale_amount_max = 0.15
 scale_amount_curve = SubResource("Curve_6cx5e")
 color_ramp = SubResource("Gradient_6cx5e")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=3955166]
+rect = Rect2(-7, -7, 14, 14)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

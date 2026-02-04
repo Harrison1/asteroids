@@ -4,7 +4,6 @@ extends CanvasLayer
 @export var life_texture: Texture2D
 
 var life_array: Array[Sprite2D]
-var score = 0
 
 @onready var score_label: Label = $Score
 
@@ -17,16 +16,16 @@ func _ready() -> void:
 
 
 func set_score(points: int) -> void:
-	score += points
-	score_label.text = str(score)
+	Global.score += points
+	score_label.text = str(Global.score)
 
 
 func render_lives() -> void:
 	for i in range(Global.player_lives):
 		var sprite_node = Sprite2D.new()
 		sprite_node.texture = life_texture
-		sprite_node.scale = Vector2(0.35, 0.35)
-		sprite_node.global_position = Vector2(277.0 - (i * 60.0), 115.0)
+		sprite_node.scale = Vector2(0.5, 0.5)
+		sprite_node.global_position = Vector2(277.0 - (i * 40.0), 100.0)
 		add_child(sprite_node)
 		life_array.append(sprite_node)
 

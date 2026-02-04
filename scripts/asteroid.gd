@@ -1,6 +1,7 @@
 class_name Asteroid
 extends Area2D
 
+@export var explosion_scene: PackedScene
 
 var asteroid_size: Global.Size
 var random_spawn := true
@@ -8,17 +9,14 @@ var speed: float
 var velocity: Vector2
 var asteroid_properties = {
 	0: {
-		"frame": [0, 1, 2].pick_random(),
 		"scale": Vector2(0.25, 0.25),
 		"speed": randf_range(200, 300)
 	},
 	1: {
-		"frame": [3, 4, 5].pick_random(),
 		"scale": Vector2(0.5, 0.5),
 		"speed": randf_range(120, 130)
 	},
 	2: {
-		"frame": [6, 7, 8].pick_random(),
 		"scale": Vector2(1.0, 1.0),
 		"speed": randf_range(100, 110)
 	}
@@ -26,6 +24,7 @@ var asteroid_properties = {
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var screen_size = get_viewport_rect().size
+@onready var visible_on_screen_notifier_2d: VisibleOnScreenNotifier2D = $VisibleOnScreenNotifier2D
 
 
 # Called when the node enters the scene tree for the first time.
@@ -47,7 +46,7 @@ func _process(_delta: float) -> void:
 
 func init_properties(size: Global.Size) -> void:
 	animated_sprite_2d.rotation = randf_range(0, TAU)
-	animated_sprite_2d.frame = asteroid_properties[size].frame
+	animated_sprite_2d.frame = [0, 1, 2].pick_random()
 	scale = asteroid_properties[size].scale
 	speed = asteroid_properties[size].speed
 
@@ -95,17 +94,28 @@ func spawn(loc: String) -> void:
 	velocity = Vector2.from_angle(vel_angle)
 
 
+func spawn_explosion() -> void:
+	if explosion_scene:
+		var explosion = explosion_scene.instantiate()
+		explosion.position = position
+		get_parent().add_child.call_deferred(explosion)
+
+
 func _on_area_entered(area: Area2D) -> void:
 	if area is Missile:
+		spawn_explosion()
 		match asteroid_size:
 			Global.Size.SIZE_1:
-				Global.update_score.emit(100)
+				if not area.is_in_group("Enemy"):
+					Global.update_score.emit(100)
 				queue_free()
 			Global.Size.SIZE_2:
-				Global.update_score.emit(50)
+				if not area.is_in_group("Enemy"):
+					Global.update_score.emit(50)
 				Global.spawn_child_asteroids.emit(position, Global.Size.SIZE_1, velocity)
 				queue_free()
 			Global.Size.SIZE_3:
-				Global.update_score.emit(20)
+				if not area.is_in_group("Enemy"):
+					Global.update_score.emit(20)
 				Global.spawn_child_asteroids.emit(position, Global.Size.SIZE_2, velocity)
 				queue_free()

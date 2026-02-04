@@ -2,7 +2,12 @@
 
 [ext_resource type="Script" uid="uid://bk66s008ylp4r" path="res://scripts/player.gd" id="1_v7wfm"]
 [ext_resource type="PackedScene" uid="uid://ovn0h0apte0o" path="res://scenes/missile.tscn" id="2_oesai"]
-[ext_resource type="Texture2D" uid="uid://de3tm6jamsipo" path="res://icon.svg" id="2_rq2ku"]
+[ext_resource type="PackedScene" uid="uid://5mqppxnx5jrl" path="res://scenes/explosion.tscn" id="2_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://bnira1kkmst3f" path="res://assets/ship.png" id="4_tuyoq"]
+[ext_resource type="Texture2D" uid="uid://cyqp458ya3bpf" path="res://assets/circle.png" id="5_fjrip"]
+[ext_resource type="AudioStream" uid="uid://dw8qc8bvl5e4" path="res://audio/sfx/Soundly/retro_laser.wav" id="5_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://ebdx7wf653xt" path="res://assets/ship_thrust.png" id="6_smehm"]
+[ext_resource type="AudioStream" uid="uid://sl3udr7bthdj" path="res://audio/sfx/Soundly/thrust_loop.wav" id="6_tuyoq"]
 
 [sub_resource type="Curve" id="Curve_v7wfm"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -11,32 +16,129 @@ point_count = 2
 [sub_resource type="Gradient" id="Gradient_rq2ku"]
 colors = PackedColorArray(1, 1, 1, 1, 0.8679888, 0.31236067, 0.178298, 1)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_oesai"]
-radius = 30.0
+[sub_resource type="SpriteFrames" id="SpriteFrames_ur7pv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_tuyoq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_smehm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_qhqgy"]
-radius = 30.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_oesai"]
+radius = 15.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_smehm"]
+radius = 15.0
+
+[sub_resource type="Animation" id="Animation_qhqgy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_dqkch"]
+resource_name = "invincible"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_qlg0r"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_tuyoq"]
+resource_name = "move"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fjrip"]
+_data = {
+&"RESET": SubResource("Animation_qhqgy"),
+&"flash": SubResource("Animation_dqkch"),
+&"idle": SubResource("Animation_qlg0r"),
+&"move": SubResource("Animation_tuyoq")
+}
 
 [node name="Player" type="CharacterBody2D" unique_id=1861639559 groups=["player"]]
 script = ExtResource("1_v7wfm")
+explosion_scene = ExtResource("2_qlg0r")
 missile_scene = ExtResource("2_oesai")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=653690153]
-rotation = 1.5707964
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_rq2ku")
+metadata/_edit_group_ = true
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1048325104]
-position = Vector2(-44, 0)
+visible = false
+position = Vector2(-13, 0)
 amount = 24
-lifetime = 0.2
+texture = ExtResource("5_fjrip")
+lifetime = 0.09999999999999999
 emission_shape = 1
 emission_sphere_radius = 2.0
 gravity = Vector2(0, 0)
-scale_amount_min = 20.0
-scale_amount_max = 20.0
+scale_amount_min = 0.1
+scale_amount_max = 0.2
 scale_amount_curve = SubResource("Curve_v7wfm")
+color = Color(1, 1, 1, 0.19607843)
 color_ramp = SubResource("Gradient_rq2ku")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="." unique_id=953134804]
+rotation = 1.5707964
+amount = 24
+texture = ExtResource("4_tuyoq")
+lifetime = 0.5
+emission_shape = 1
+emission_sphere_radius = 2.0
+particle_flag_align_y = true
+gravity = Vector2(0, 0)
+scale_amount_min = 0.75
+scale_amount_max = 0.75
+scale_amount_curve = SubResource("Curve_v7wfm")
+color = Color(1, 1, 1, 0.19607843)
+color_ramp = SubResource("Gradient_rq2ku")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=653690153]
+rotation = 1.5707964
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("4_tuyoq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1316226572]
+rotation = 1.5707964
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_ur7pv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=13241012]
 shape = SubResource("CircleShape2D_oesai")
@@ -44,6 +146,21 @@ shape = SubResource("CircleShape2D_oesai")
 [node name="Area2D" type="Area2D" parent="." unique_id=734737981]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1478114016]
-shape = SubResource("CircleShape2D_qhqgy")
+shape = SubResource("CircleShape2D_smehm")
+
+[node name="ShootSFX" type="AudioStreamPlayer2D" parent="." unique_id=923752166]
+stream = ExtResource("5_qlg0r")
+volume_db = -8.0
+bus = &"SFX"
+
+[node name="Thrust" type="AudioStreamPlayer2D" parent="." unique_id=1650432770]
+stream = ExtResource("6_tuyoq")
+volume_db = -80.0
+autoplay = true
+bus = &"SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1489606341]
+libraries/ = SubResource("AnimationLibrary_fjrip")
+autoplay = &"idle"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

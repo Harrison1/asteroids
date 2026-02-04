@@ -2,7 +2,7 @@ class_name Missile
 extends Area2D
 
 
-const SPEED = 800.0
+const SPEED = 1000.0
 
 
 func _physics_process(delta: float) -> void:

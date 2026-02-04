@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ddsrcldwnlh4v"]
+
+[ext_resource type="AudioStream" uid="uid://dqdgqrshke6d2" path="res://audio/music/retro_synths.ogg" id="1_4fomv"]
+
+[node name="Music" type="AudioStreamPlayer2D" unique_id=396124388]
+stream = ExtResource("1_4fomv")
+autoplay = true
+bus = &"Music"

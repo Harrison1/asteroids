@@ -1,12 +1,30 @@
 [gd_scene format=3 uid="uid://8dmpjrf1hftc"]
 
 [ext_resource type="Script" uid="uid://be1pqtbbokel3" path="res://scripts/hud.gd" id="1_1etfg"]
-[ext_resource type="Texture2D" uid="uid://de3tm6jamsipo" path="res://icon.svg" id="1_8juob"]
 [ext_resource type="FontFile" uid="uid://5f21ork63ny8" path="res://fonts/Hyperspace.otf" id="1_fls4u"]
+[ext_resource type="Texture2D" uid="uid://bnira1kkmst3f" path="res://assets/ship.png" id="2_f6qnu"]
+[ext_resource type="Script" uid="uid://bflgksyhhv7ig" path="res://scripts/hi_score.gd" id="4_7hsmw"]
+[ext_resource type="FontFile" uid="uid://b5mfiah7sch5c" path="res://fonts/HyperspaceBold.otf" id="5_nysna"]
+[ext_resource type="Script" uid="uid://b82xfp6vl657l" path="res://scripts/pause.gd" id="6_f6qnu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nysna"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f6qnu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k4w17"]
+bg_color = Color(0.09620472, 0.09620475, 0.09620469, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_twldb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8cuoo"]
 
 [node name="GameHUD" type="CanvasLayer" unique_id=1362098179]
 script = ExtResource("1_1etfg")
-life_texture = ExtResource("1_8juob")
+life_texture = ExtResource("2_f6qnu")
 
 [node name="Score" type="Label" parent="." unique_id=753484690]
 offset_left = 25.0
@@ -32,30 +50,7 @@ theme_override_font_sizes/font_size = 40
 text = "00"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1794315346]
-visible = false
-position = Vector2(277.00003, 114)
-scale = Vector2(0.35, 0.35)
-texture = ExtResource("1_8juob")
-
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=579876483]
-visible = false
-position = Vector2(217, 114)
-scale = Vector2(0.35, 0.35)
-texture = ExtResource("1_8juob")
-
-[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1207464212]
-visible = false
-position = Vector2(155, 114)
-scale = Vector2(0.35, 0.35)
-texture = ExtResource("1_8juob")
-
-[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=1550819122]
-visible = false
-position = Vector2(91.000015, 114)
-scale = Vector2(0.35, 0.35)
-texture = ExtResource("1_8juob")
+script = ExtResource("4_7hsmw")
 
 [node name="Title" type="Label" parent="." unique_id=1146085263]
 anchors_preset = 7
@@ -73,3 +68,22 @@ theme_override_fonts/font = ExtResource("1_fls4u")
 theme_override_font_sizes/font_size = 24
 text = "© 1979 Asteroids, Inc"
 uppercase = true
+
+[node name="Pause" type="Button" parent="." unique_id=813511517]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -62.0
+offset_top = 25.0
+offset_right = -25.0
+offset_bottom = 63.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("5_nysna")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_nysna")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_f6qnu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k4w17")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_twldb")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8cuoo")
+text = "||"
+script = ExtResource("6_f6qnu")

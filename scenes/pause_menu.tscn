@@ -2,6 +2,77 @@
 
 [ext_resource type="Script" uid="uid://mxnkj66qpbfm" path="res://scripts/pause_menu.gd" id="1_n87rw"]
 [ext_resource type="FontFile" uid="uid://5f21ork63ny8" path="res://fonts/Hyperspace.otf" id="2_myx47"]
+[ext_resource type="Script" uid="uid://duk3bm45hrwli" path="res://scripts/change_to_scene.gd" id="3_kukqi"]
+[ext_resource type="Texture2D" uid="uid://c83fja64h4478" path="res://assets/square_open.png" id="4_1s2dm"]
+[ext_resource type="AudioStream" uid="uid://covsain1c1lit" path="res://audio/sfx/8BitSciFiSounds/user_interface_item_3.wav" id="4_7l7mv"]
+[ext_resource type="AudioStream" uid="uid://nvy44yrlk3f2" path="res://audio/sfx/8BitSciFiSounds/user_interface_item.wav" id="5_7l7mv"]
+[ext_resource type="Texture2D" uid="uid://bgvn8d2yuic0q" path="res://assets/rectangle_open.png" id="5_88e76"]
+[ext_resource type="Texture2D" uid="uid://q24k0qir7j02" path="res://assets/mouse.png" id="6_88e76"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_myx47"]
+bg_color = Color(0.093160845, 0.093160845, 0.0931608, 1)
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 1
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kukqi"]
+bg_color = Color(0.093160845, 0.093160845, 0.0931608, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 1
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5d2l8"]
+bg_color = Color(0.093160845, 0.093160845, 0.0931608, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 1
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7l7mv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7l7mv"]
+bg_color = Color(0.093160845, 0.093160845, 0.0931608, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 1
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v4r4p"]
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=441711877]
 process_mode = 3
@@ -13,21 +84,311 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.78431374)
+color = Color(0, 0, 0, 0.88235295)
 
-[node name="Label" type="Label" parent="." unique_id=553022285]
+[node name="Paused" type="Label" parent="." unique_id=553022285]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -28.5
-offset_top = -11.5
-offset_right = 28.5
-offset_bottom = 11.5
+offset_left = -86.0
+offset_top = -230.0
+offset_right = 86.0
+offset_bottom = -170.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_myx47")
 theme_override_font_sizes/font_size = 48
 text = "Paused"
 uppercase = true
+
+[node name="Menu" type="Control" parent="." unique_id=1140986257]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Resume" type="Button" parent="Menu" unique_id=172981346]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 790.0
+offset_top = 390.0
+offset_right = 1090.0
+offset_bottom = 445.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_myx47")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_myx47")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kukqi")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5d2l8")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_7l7mv")
+theme_override_styles/focus = SubResource("StyleBoxFlat_kukqi")
+text = "Resume"
+
+[node name="Controls" type="Button" parent="Menu" unique_id=1147897426]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 790.0
+offset_top = 490.0
+offset_right = 1090.0
+offset_bottom = 545.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_myx47")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_myx47")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kukqi")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7l7mv")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_7l7mv")
+theme_override_styles/focus = SubResource("StyleBoxFlat_kukqi")
+text = "Controls"
+
+[node name="Quit" type="Button" parent="Menu" unique_id=1161232847]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 790.0
+offset_top = 590.0
+offset_right = 1090.0
+offset_bottom = 645.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_myx47")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_myx47")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kukqi")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kukqi")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_7l7mv")
+theme_override_styles/focus = SubResource("StyleBoxFlat_kukqi")
+text = "Quit"
+script = ExtResource("3_kukqi")
+scene_name = "main_menu"
+
+[node name="ControlsMenu" type="Control" parent="." unique_id=2143355126]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -381.0
+offset_top = -20.0
+offset_right = -341.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Th" type="Control" parent="ControlsMenu" unique_id=1446940208]
+anchors_preset = 0
+offset_left = -87.0
+offset_top = 13.0
+offset_right = -87.0
+offset_bottom = 13.0
+
+[node name="Thrust" type="Label" parent="ControlsMenu/Th" unique_id=897525553]
+layout_mode = 0
+offset_left = -85.0
+offset_top = -107.0
+offset_right = 87.0
+offset_bottom = -47.0
+theme_override_fonts/font = ExtResource("2_myx47")
+theme_override_font_sizes/font_size = 48
+text = "Thrust"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Key" type="Sprite2D" parent="ControlsMenu/Th" unique_id=468756784]
+scale = Vector2(0.643, 0.6)
+texture = ExtResource("4_1s2dm")
+
+[node name="W" type="Label" parent="ControlsMenu/Th" unique_id=1616723495]
+layout_mode = 0
+offset_left = -10.0
+offset_top = -29.0
+offset_right = 19.0
+offset_bottom = 31.0
+theme_override_fonts/font = ExtResource("2_myx47")
+theme_override_font_sizes/font_size = 48
+text = "W"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Le" type="Control" parent="ControlsMenu" unique_id=584696472]
+anchors_preset = 0
+offset_left = -232.0
+offset_top = 163.0
+offset_right = -232.0
+offset_bottom = 163.0
+
+[node name="Left" type="Label" parent="ControlsMenu/Le" unique_id=1945019315]
+layout_mode = 0
+offset_left = -55.0
+offset_top = -107.0
+offset_right = 62.0
+offset_bottom = -47.0
+theme_override_fonts/font = ExtResource("2_myx47")
+theme_override_font_sizes/font_size = 48
+text = "Left"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Key" type="Sprite2D" parent="ControlsMenu/Le" unique_id=681644463]
+scale = Vector2(0.643, 0.6)
+texture = ExtResource("4_1s2dm")
+
+[node name="A" type="Label" parent="ControlsMenu/Le" unique_id=1409987662]
+layout_mode = 0
+offset_left = -10.0
+offset_top = -29.0
+offset_right = 19.0
+offset_bottom = 31.0
+theme_override_fonts/font = ExtResource("2_myx47")
+theme_override_font_sizes/font_size = 48
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ri" type="Control" parent="ControlsMenu" unique_id=1016780895]
+anchors_preset = 0
+offset_left = 42.0
+offset_top = 163.0
+offset_right = 42.0
+offset_bottom = 163.0
+
+[node name="Right" type="Label" parent="ControlsMenu/Ri" unique_id=353724882]
+layout_mode = 0
+offset_left = -62.0
+offset_top = -107.0
+offset_right = 84.0
+offset_bottom = -47.0
+theme_override_fonts/font = ExtResource("2_myx47")
+theme_override_font_sizes/font_size = 48
+text = "Right"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Key" type="Sprite2D" parent="ControlsMenu/Ri" unique_id=945447796]
+scale = Vector2(0.643, 0.6)
+texture = ExtResource("4_1s2dm")
+
+[node name="D" type="Label" parent="ControlsMenu/Ri" unique_id=1996848766]
+layout_mode = 0
+offset_left = -10.0
+offset_top = -29.0
+offset_right = 19.0
+offset_bottom = 31.0
+theme_override_fonts/font = ExtResource("2_myx47")
+theme_override_font_sizes/font_size = 48
+text = "D"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sp" type="Control" parent="ControlsMenu" unique_id=755295120]
+anchors_preset = 0
+offset_left = 350.0
+offset_top = 310.0
+offset_right = 350.0
+offset_bottom = 310.0
+
+[node name="Shoot" type="Label" parent="ControlsMenu/Sp" unique_id=803881303]
+layout_mode = 0
+offset_left = -55.0
+offset_top = -107.0
+offset_right = 62.0
+offset_bottom = -47.0
+theme_override_fonts/font = ExtResource("2_myx47")
+theme_override_font_sizes/font_size = 48
+text = "Shoot"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Key" type="Sprite2D" parent="ControlsMenu/Sp" unique_id=85767576]
+scale = Vector2(0.643, 0.6)
+texture = ExtResource("5_88e76")
+
+[node name="Space" type="Label" parent="ControlsMenu/Sp" unique_id=1350272487]
+layout_mode = 0
+offset_left = -42.0
+offset_top = -20.0
+offset_right = 56.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("2_myx47")
+theme_override_font_sizes/font_size = 32
+text = "Space"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Mouse" type="Control" parent="ControlsMenu" unique_id=1341570375]
+anchors_preset = 0
+offset_left = 777.0
+offset_top = 72.0
+offset_right = 817.0
+offset_bottom = 112.0
+
+[node name="Sprite2D" type="Sprite2D" parent="ControlsMenu/Mouse" unique_id=910487198]
+texture = ExtResource("6_88e76")
+
+[node name="LMB" type="Label" parent="ControlsMenu/Mouse" unique_id=1985009351]
+layout_mode = 0
+offset_left = -79.0
+offset_top = -94.0
+offset_right = -20.0
+offset_bottom = -54.0
+theme_override_fonts/font = ExtResource("2_myx47")
+theme_override_font_sizes/font_size = 32
+text = "LMB"
+
+[node name="Shoot" type="Label" parent="ControlsMenu/Mouse" unique_id=468498957]
+layout_mode = 0
+offset_left = -64.0
+offset_top = -28.0
+offset_right = 58.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_myx47")
+theme_override_font_sizes/font_size = 40
+text = "Shoot"
+
+[node name="Back" type="Button" parent="ControlsMenu" unique_id=1157384264]
+layout_mode = 0
+offset_left = 244.0
+offset_top = 459.0
+offset_right = 444.0
+offset_bottom = 507.0
+theme_override_fonts/font = ExtResource("2_myx47")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_myx47")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kukqi")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kukqi")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_v4r4p")
+theme_override_styles/focus = SubResource("StyleBoxFlat_kukqi")
+text = "Back"
+
+[node name="Click" type="AudioStreamPlayer2D" parent="." unique_id=1432757557]
+stream = ExtResource("4_7l7mv")
+volume_db = 2.0
+
+[node name="Hover" type="AudioStreamPlayer2D" parent="." unique_id=1474633067]
+stream = ExtResource("5_7l7mv")
+volume_db = 10.0
+
+[connection signal="mouse_entered" from="Menu/Resume" to="." method="_on_resume_mouse_entered"]
+[connection signal="pressed" from="Menu/Resume" to="." method="_on_resume_pressed"]
+[connection signal="mouse_entered" from="Menu/Controls" to="." method="_on_controls_mouse_entered"]
+[connection signal="pressed" from="Menu/Controls" to="." method="_on_controls_pressed"]
+[connection signal="mouse_entered" from="Menu/Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="mouse_entered" from="ControlsMenu/Back" to="." method="_on_back_mouse_entered"]
+[connection signal="pressed" from="ControlsMenu/Back" to="." method="_on_back_pressed"]

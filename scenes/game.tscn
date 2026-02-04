@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://4junhdnkdcsr" path="res://scenes/game_manager.tscn" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://8dmpjrf1hftc" path="res://scenes/HUD.tscn" id="3_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://bul7gadgy37p1" path="res://scenes/pause_menu.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://33qdn1rnoj2k" path="res://scenes/game_over.tscn" id="4_lbhrr"]
 
 [node name="Game" type="Node2D" unique_id=609421516]
 
@@ -16,4 +17,8 @@ color = Color(0, 0, 0, 1)
 [node name="HUD" parent="." unique_id=920375075 instance=ExtResource("3_lbhrr")]
 
 [node name="PauseMenu" parent="." unique_id=441711877 instance=ExtResource("3_lnu2h")]
+unique_name_in_owner = true
+visible = false
+
+[node name="GameOver" parent="." unique_id=1915694922 instance=ExtResource("4_lbhrr")]
 visible = false

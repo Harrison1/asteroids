@@ -2,24 +2,38 @@
 
 [ext_resource type="Script" uid="uid://bkjyboniwsp7" path="res://scripts/ufo.gd" id="1_xf4xf"]
 [ext_resource type="PackedScene" uid="uid://ovn0h0apte0o" path="res://scenes/missile.tscn" id="2_1aa4c"]
-[ext_resource type="Texture2D" uid="uid://de3tm6jamsipo" path="res://icon.svg" id="2_gp6nc"]
+[ext_resource type="PackedScene" uid="uid://5mqppxnx5jrl" path="res://scenes/explosion.tscn" id="2_vvsiw"]
+[ext_resource type="Texture2D" uid="uid://cewmiolio00oe" path="res://assets/ufo.png" id="4_linyg"]
+[ext_resource type="AudioStream" uid="uid://b1pe5v1lb8k7q" path="res://audio/sfx/50CC0SciFiSFX/retro_laser_01.ogg" id="5_vvsiw"]
+[ext_resource type="AudioStream" uid="uid://0mjvf3s8vfpc" path="res://audio/sfx/8BitSciFiSounds/alien_abduction.wav" id="6_linyg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1aa4c"]
-radius = 50.0
+radius = 40.0
 
 [node name="UFO" type="Area2D" unique_id=596580605 groups=["Enemy"]]
 script = ExtResource("1_xf4xf")
+explosion_scene = ExtResource("2_vvsiw")
 missile_scene = ExtResource("2_1aa4c")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=898737534]
 scale = Vector2(0.75, 0.75)
-texture = ExtResource("2_gp6nc")
+texture = ExtResource("4_linyg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1505573689]
 shape = SubResource("CircleShape2D_1aa4c")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=723301787]
-rect = Rect2(-25, -25, 50, 50)
+rect = Rect2(-45, -30, 90, 60)
+
+[node name="ShootSFX" type="AudioStreamPlayer2D" parent="." unique_id=255149382]
+stream = ExtResource("5_vvsiw")
+volume_db = 4.0
+bus = &"SFX"
+
+[node name="UFOAbductionSFX" type="AudioStreamPlayer2D" parent="." unique_id=1801652893]
+stream = ExtResource("6_linyg")
+volume_db = -4.0
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

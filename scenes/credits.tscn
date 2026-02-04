@@ -1,19 +1,35 @@
 [gd_scene format=3 uid="uid://d1ioh7qg16ssk"]
 
 [ext_resource type="FontFile" uid="uid://5f21ork63ny8" path="res://fonts/Hyperspace.otf" id="1_0bpdh"]
-[ext_resource type="Script" uid="uid://ba45xyfdsp6uc" path="res://scripts/change_to_main_menu_scene.gd" id="2_2ckv8"]
+[ext_resource type="Script" uid="uid://doiem50g2ujrx" path="res://scripts/credits.gd" id="1_8gwij"]
+[ext_resource type="FontFile" uid="uid://b5mfiah7sch5c" path="res://fonts/HyperspaceBold.otf" id="2_0ctdu"]
+[ext_resource type="Script" uid="uid://duk3bm45hrwli" path="res://scripts/change_to_scene.gd" id="2_2fbfq"]
+[ext_resource type="AudioStream" uid="uid://nvy44yrlk3f2" path="res://audio/sfx/8BitSciFiSounds/user_interface_item.wav" id="4_2fbfq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0bpdh"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2ckv8"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ctdu"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ctdu"]
+draw_center = false
+border_width_top = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2fbfq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8gwij"]
 
+[sub_resource type="InputEventAction" id="InputEventAction_2fbfq"]
+action = &"ui_cancel"
+
+[sub_resource type="Shortcut" id="Shortcut_8gwij"]
+events = [SubResource("InputEventAction_2fbfq")]
+
 [node name="Credits" type="Node2D" unique_id=1797648737]
+script = ExtResource("1_8gwij")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=759267278]
 
@@ -25,7 +41,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Title" type="Label" parent="CanvasLayer" unique_id=1405893223]
+[node name="Credits" type="Label" parent="CanvasLayer" unique_id=1405893223]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -39,26 +55,71 @@ theme_override_font_sizes/font_size = 40
 text = "Credits"
 
 [node name="MainMenu" type="Button" parent="CanvasLayer" unique_id=1221159548]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -114.0
-offset_top = -84.0
-offset_right = 114.0
-offset_bottom = -25.0
-grow_horizontal = 2
-grow_vertical = 0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 186.0
+offset_bottom = 55.0
 theme_override_fonts/font = ExtResource("1_0bpdh")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxEmpty_0bpdh")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_2ckv8")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_0ctdu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0ctdu")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_2fbfq")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_8gwij")
-text = "Main Menu"
-script = ExtResource("2_2ckv8")
+shortcut = SubResource("Shortcut_8gwij")
+text = "< Main Menu"
+alignment = 0
+script = ExtResource("2_2fbfq")
 scene_name = "main_menu"
 
-[connection signal="pressed" from="CanvasLayer/MainMenu" to="CanvasLayer/MainMenu" method="_on_pressed"]
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=919447506]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -392.0
+offset_bottom = 488.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("1_0bpdh")
+theme_override_fonts/bold_font = ExtResource("2_0ctdu")
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+bbcode_enabled = true
+text = "[center]
+[b]Music[/b]
+\"Song Title\"
+by
+Artist
+service: Soundly
+[/center]
+
+[center]
+[b]SFX[/b]
+\"Title\" by Originator
+Library: FReeSound CC0
+Service: Soundly
+[/center]
+
+[center]
+[b]Video References[/b]
+[url=https://www.youtube.com/watch?v=w60sfReTsRA]\"Classic Game Room - ASTEROIDS arcade game review\"[/url]
+by
+[url=https://www.youtube.com/@classicgameroom]Classic Game Room[/url]
+Service: [url=https://www.youtube.com/]YouTube[/url]
+
+[url=https://www.youtube.com/watch?v=9Ydu8UhIjeU]\"Arcade Game: Asteroids (1979 Atari)\"[/url]
+by
+[url=https://www.youtube.com/@oldclassicgame]Old Classic Retro Gaming[/url]
+Service: [url=https://www.youtube.com/]YouTube[/url]
+[/center]
+"
+
+[node name="Hover" type="AudioStreamPlayer2D" parent="." unique_id=1508693503]
+stream = ExtResource("4_2fbfq")
+volume_db = 10.0
+
+[connection signal="mouse_entered" from="CanvasLayer/MainMenu" to="." method="_on_main_menu_mouse_entered"]

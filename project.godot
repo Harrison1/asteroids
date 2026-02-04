@@ -14,11 +14,18 @@ config/name="Asteroids"
 config/description="Remake of Asteroids originally created in 1979"
 run/main_scene="uid://djxb6v4ajhypy"
 config/features=PackedStringArray("4.6", "GL Compatibility")
+boot_splash/show_image=false
+boot_splash/use_filter=false
 config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="uid://cx64vsf4c2dcs"
 
 [autoload]
 
 Global="*uid://dk6wwmbkpritm"
+Music="*uid://ddsrcldwnlh4v"
 
 [display]
 

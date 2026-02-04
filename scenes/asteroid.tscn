@@ -1,19 +1,22 @@
 [gd_scene format=3 uid="uid://7ygmy5j4e3kq"]
 
 [ext_resource type="Script" uid="uid://d4l0xrumd3pi5" path="res://scripts/asteroid.gd" id="1_6mo6b"]
-[ext_resource type="Texture2D" uid="uid://de3tm6jamsipo" path="res://icon.svg" id="1_akfqu"]
+[ext_resource type="PackedScene" uid="uid://5mqppxnx5jrl" path="res://scenes/explosion.tscn" id="2_t4se3"]
+[ext_resource type="Texture2D" uid="uid://7hc185rp3hgg" path="res://assets/asteroids_1.png" id="3_pwrvu"]
+[ext_resource type="Texture2D" uid="uid://42q1jd1b5n3t" path="res://assets/asteroids_2.png" id="4_0jovh"]
+[ext_resource type="Texture2D" uid="uid://tyx72q06env8" path="res://assets/asteroids_3.png" id="5_kkwpv"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6mo6b"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_akfqu")
+"texture": ExtResource("3_pwrvu")
 }, {
 "duration": 1.0,
-"texture": ExtResource("1_akfqu")
+"texture": ExtResource("4_0jovh")
 }, {
 "duration": 1.0,
-"texture": ExtResource("1_akfqu")
+"texture": ExtResource("5_kkwpv")
 }],
 "loop": true,
 "name": &"default",
@@ -21,10 +24,11 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0md28"]
-radius = 30.0
+radius = 55.0
 
 [node name="Asteroid" type="Area2D" unique_id=333494792 groups=["Enemy"]]
 script = ExtResource("1_6mo6b")
+explosion_scene = ExtResource("2_t4se3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1057589306]
 sprite_frames = SubResource("SpriteFrames_6mo6b")
@@ -33,6 +37,7 @@ sprite_frames = SubResource("SpriteFrames_6mo6b")
 shape = SubResource("CircleShape2D_0md28")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=321003812]
+rect = Rect2(-50, -50, 100, 100)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
