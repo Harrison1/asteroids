@@ -10,3 +10,14 @@ script = ExtResource("1_hwd4i")
 asteroid_scene = ExtResource("2_glms7")
 player_scene = ExtResource("3_udu3i")
 ufo_scene = ExtResource("4_oo155")
+
+[node name="AsteroidTimer" type="Timer" parent="." unique_id=935371304]
+wait_time = 2.0
+autostart = true
+
+[node name="UFOTimer" type="Timer" parent="." unique_id=74472971]
+wait_time = 10.0
+autostart = true
+
+[connection signal="timeout" from="AsteroidTimer" to="." method="_on_asteroid_timer_timeout"]
+[connection signal="timeout" from="UFOTimer" to="." method="_on_ufo_timer_timeout"]

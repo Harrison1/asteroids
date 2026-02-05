@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://be1pqtbbokel3" path="res://scripts/hud.gd" id="1_1etfg"]
 [ext_resource type="FontFile" uid="uid://5f21ork63ny8" path="res://fonts/Hyperspace.otf" id="1_fls4u"]
-[ext_resource type="Texture2D" uid="uid://bnira1kkmst3f" path="res://assets/ship.png" id="2_f6qnu"]
+[ext_resource type="Texture2D" uid="uid://cfaa1ifrklktq" path="res://assets/ship_sm.png" id="2_f6qnu"]
 [ext_resource type="Script" uid="uid://bflgksyhhv7ig" path="res://scripts/hi_score.gd" id="4_7hsmw"]
 [ext_resource type="FontFile" uid="uid://b5mfiah7sch5c" path="res://fonts/HyperspaceBold.otf" id="5_nysna"]
 [ext_resource type="Script" uid="uid://b82xfp6vl657l" path="res://scripts/pause.gd" id="6_f6qnu"]
@@ -87,3 +87,5 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_twldb")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_8cuoo")
 text = "||"
 script = ExtResource("6_f6qnu")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=845259222]

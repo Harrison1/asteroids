@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://dy0i8tw423tqm" path="res://scripts/main_menu.gd" id="1_oa1go"]
 [ext_resource type="Script" uid="uid://cae6qj0oofqto" path="res://scripts/play.gd" id="2_ekxnf"]
 [ext_resource type="Script" uid="uid://bflgksyhhv7ig" path="res://scripts/hi_score.gd" id="2_wu84c"]
-[ext_resource type="Script" uid="uid://duk3bm45hrwli" path="res://scripts/change_to_scene.gd" id="4_wu84c"]
 [ext_resource type="AudioStream" uid="uid://neb6wkileqk3" path="res://audio/sfx/Soundly/insert_coin.wav" id="5_8ln24"]
+[ext_resource type="Script" uid="uid://duk3bm45hrwli" path="res://scripts/change_to_scene.gd" id="5_oa1go"]
 [ext_resource type="AudioStream" uid="uid://nvy44yrlk3f2" path="res://audio/sfx/8BitSciFiSounds/user_interface_item.wav" id="6_rtw2f"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bqqt6"]
@@ -14,8 +14,8 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ln24"]
 draw_center = false
-border_width_top = 1
-border_width_bottom = 1
+border_width_top = 2
+border_width_bottom = 2
 border_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oa1go"]
@@ -35,8 +35,8 @@ events = [SubResource("InputEventAction_bqqt6")]
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wu84c"]
 bg_color = Color(0.07762883, 0.07762881, 0.07762881, 1)
 draw_center = false
-border_width_top = 1
-border_width_bottom = 1
+border_width_top = 2
+border_width_bottom = 2
 border_color = Color(1, 1, 1, 1)
 corner_detail = 20
 
@@ -156,7 +156,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_wu84c")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_lgwnu")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_flqon")
 text = "Credits"
-script = ExtResource("4_wu84c")
+script = ExtResource("5_oa1go")
 scene_name = "credits"
 
 [node name="Title" type="Label" parent="CanvasLayer" unique_id=729120616]

@@ -11,6 +11,7 @@ static var is_respawn := false
 @export var explosion_scene: PackedScene
 @export var missile_scene: PackedScene
 
+var check_thrust := false
 var invincible := true
 var can_shoot := true
 var rotation_direction := 0.0
@@ -19,6 +20,7 @@ var tween: Tween
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
+@onready var particle_trail: CPUParticles2D = $ParticleTrail
 @onready var screen_size = get_viewport_rect().size
 @onready var shoot_sfx: AudioStreamPlayer = $ShootSFX
 @onready var thrust: AudioStreamPlayer = $Thrust
@@ -27,10 +29,11 @@ var tween: Tween
 func _ready() -> void:
 	# only play iframe flash anim on respawns
 	if is_respawn:
+		check_thrust = true
 		animation_player.play("flash")
 		await get_tree().create_timer(1.5).timeout
 		invincible = false
-		animation_player.play("idle")
+		animation_player.stop()
 	else:
 		invincible = false
 		is_respawn = true
@@ -38,6 +41,12 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	fire_missile()
+
+	# if player is holding the thrust button between spawns
+	if check_thrust:
+		check_thrust = false
+		if Input.is_action_pressed("thrust"):
+			handle_thrust_props()
 
 
 func _physics_process(delta: float):
@@ -49,11 +58,7 @@ func _physics_process(delta: float):
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("thrust"):
-		animated_sprite_2d.frame = 1
-		if tween and tween.is_running():
-			tween.stop()
-		thrust.play()
-		thrust.volume_db = 8.0
+		handle_thrust_props()
 
 	if event.is_action_released("thrust"):
 		animated_sprite_2d.frame = 0
@@ -63,12 +68,37 @@ func _input(event: InputEvent) -> void:
 			tween.tween_callback(thrust.stop)
 
 
+func handle_thrust_props() -> void:
+	animated_sprite_2d.frame = 1
+	if tween and tween.is_running():
+		tween.stop()
+	thrust.play()
+	thrust.volume_db = 8.0
+
+
 func get_input():
 	var input_strength = Input.get_action_strength("thrust")
 	var new_velocity = transform.x * input_strength * SPEED
 	var damp = 10.0 if input_strength else 1.0
 	velocity = velocity.move_toward(new_velocity, damp)
 	rotation_direction = Input.get_axis("turn_left", "turn_right")
+	#handle_thrust(input_strength)
+#
+#
+#func handle_thrust(thrust_pressed: bool) -> void:
+	#if thrust_pressed:
+		#animated_sprite_2d.frame = 1
+		#if tween and tween.is_running():
+			#tween.stop()
+		#if not thrust.playing:
+			#thrust.play()
+			#thrust.volume_db = 8.0
+	#else:
+		#animated_sprite_2d.frame = 0
+		#if thrust.playing:
+			#tween = create_tween()
+			#tween.tween_property(thrust, "volume_db", -80.0, 3.0)
+			#tween.tween_callback(thrust.stop)
 
 
 func fire_missile() -> void:

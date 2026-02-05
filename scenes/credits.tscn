@@ -13,8 +13,8 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ctdu"]
 draw_center = false
-border_width_top = 1
-border_width_bottom = 1
+border_width_top = 2
+border_width_bottom = 2
 border_color = Color(1, 1, 1, 1)
 expand_margin_top = 10.0
 expand_margin_bottom = 10.0
@@ -179,3 +179,4 @@ stream = ExtResource("4_2fbfq")
 volume_db = 10.0
 
 [connection signal="mouse_entered" from="CanvasLayer/MainMenu" to="." method="_on_main_menu_mouse_entered"]
+[connection signal="meta_clicked" from="CanvasLayer/RichTextLabel" to="." method="_on_rich_text_label_meta_clicked"]

@@ -23,8 +23,8 @@ func set_score(points: int) -> void:
 func render_lives() -> void:
 	for i in range(Global.player_lives):
 		var sprite_node = Sprite2D.new()
+		sprite_node.modulate.a = 0.8
 		sprite_node.texture = life_texture
-		sprite_node.scale = Vector2(0.5, 0.5)
 		sprite_node.global_position = Vector2(277.0 - (i * 40.0), 100.0)
 		add_child(sprite_node)
 		life_array.append(sprite_node)
@@ -32,4 +32,5 @@ func render_lives() -> void:
 
 func substract_life() -> void:
 	var last_life = life_array.pop_back()
-	last_life.queue_free()
+	if last_life:
+		last_life.queue_free()

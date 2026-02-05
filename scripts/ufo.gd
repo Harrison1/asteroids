@@ -11,22 +11,24 @@ var velocity = Vector2(-1.0, 0.0)
 
 @onready var screen_size = get_viewport_rect().size
 @onready var shoot_sfx: AudioStreamPlayer = $ShootSFX
+@onready var shoot_timer: Timer = $ShootTimer
 @onready var ufo_abduction_sfx: AudioStreamPlayer = $UFOAbductionSFX
 
 
 ## Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	spawn_ufo()
-	shoot()
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.5, false).timeout
 	ufo_abduction_sfx.play()
 
+
 func _physics_process(delta: float) -> void:
-	position += velocity * speed * delta
+	position += velocity * speed * Global.difficulty_multiplier * delta
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free()
+
 
 func spawn_ufo() -> void:
 	size = [Global.Size.SIZE_1, Global.Size.SIZE_2].pick_random()
@@ -55,11 +57,13 @@ func spawn(loc: String) -> void:
 
 
 func shoot() -> void:
-	while Global.is_game_active:
-		await get_tree().create_timer(5.0).timeout
+	if Global.is_game_active:
 		var player = get_tree().get_first_node_in_group("player")
 		if player:
 			spawn_missile(player.position)
+			shoot_timer.wait_time = randf_range(2.0, 4.0)
+			
+
 
 func spawn_missile(pos: Vector2) -> void:
 	var missile = missile_scene.instantiate()
@@ -89,3 +93,7 @@ func _on_area_entered(area: Area2D) -> void:
 				if not area.is_in_group("Enemy"):
 					Global.update_score.emit(1000)
 		queue_free()
+
+
+func _on_shoot_timer_timeout() -> void:
+	shoot()
