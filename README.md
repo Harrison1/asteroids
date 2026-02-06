@@ -1,6 +1,6 @@
 # Asteroids
 
-![Asteroids text on black background](/promo\asteroids-text-wide-cover.png)
+![Asteroids text on black background](/promo/asteroids-text-wide-cover.png)
 
 A Remake of Asteroids in Godot
 
