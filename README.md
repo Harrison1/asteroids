@@ -42,7 +42,7 @@ Players control a space ship while shooting and avoiding asteroids. The more ast
 | Service | Title | Channel |
 | ------- | ----- | ------- |
 | YouTube | [Arcade Game: Asteroids (1979 Atari)](https://www.youtube.com/watch?v=9Ydu8UhIjeU) | [Old Classic Retro Gaming](https://www.youtube.com/@oldclassicgame) |
-| YouTube | [Classic Game Room - ASTEROIDS arcade game review](https://www.youtube.com/watch?v=w60sfReTsRA) | [Classic Game Room](https://www.youtube.com/@classicgameroom) |
+| YouTube | [Classic Game Room - ASTEROIDS arcade game review](https://www.youtube.com/watch?v=w60sfReTsRA) | [Classic Game Room](https://www.youtube.com/channel/UCh4syoTtvmYlDMeMnwS5dmA) |
 
 ### Typography Font
 | Title | Author |
