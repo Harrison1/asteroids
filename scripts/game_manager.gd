@@ -85,7 +85,7 @@ func _on_ufo_timer_timeout() -> void:
 
 
 func _clamp_asteroid_wait_time(value: float) -> void:
-	asteroid_spawn_wait_timer = clamp(value, 0.5, 2.0)
+	asteroid_spawn_wait_timer = clamp(value, 0.4, 2.0)
 
 
 func _clamp_ufo_wait_time(value: float) -> void:
