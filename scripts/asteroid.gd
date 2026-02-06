@@ -4,6 +4,7 @@ extends Area2D
 @export var explosion_scene: PackedScene
 
 var asteroid_size: Global.Size
+var has_entered_screen := false
 var random_spawn := true
 var speed: float
 var velocity: Vector2
@@ -40,19 +41,11 @@ func _physics_process(delta: float) -> void:
 	position += velocity * speed * Global.difficulty_multiplier * delta
 
 
-func _process(_delta: float) -> void:
-	pass
-
-
 func init_properties(size: Global.Size) -> void:
 	animated_sprite_2d.rotation = randf_range(0, TAU)
 	animated_sprite_2d.frame = [0, 1, 2].pick_random()
 	scale = asteroid_properties[size].scale
 	speed = asteroid_properties[size].speed
-
-
-func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	queue_free()
 
 
 func spawn_asteroid() -> void:
@@ -119,3 +112,18 @@ func _on_area_entered(area: Area2D) -> void:
 					Global.update_score.emit(20)
 				Global.spawn_child_asteroids.emit(position, Global.Size.SIZE_2, velocity)
 				queue_free()
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	queue_free()
+
+
+# Original Astroids wrapped asteroids, in this simple remake their destroyed when off screen
+#func screen_wrap() -> void:
+	#position.x = wrapf(position.x, -100.0, screen_size.x + 100.0)
+	#position.y = wrapf(position.y, -100.0, screen_size.y + 100.0)
+
+
+#func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
+	#await get_tree().create_timer(2.0).timeout
+	#has_entered_screen = true

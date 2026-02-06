@@ -1,6 +1,23 @@
-# Asteroids (wip)
+# Asteroids
 
-Remake of Asteroids in Godot
+![Asteroids text on black background](/promo\asteroids-text-wide-cover.png)
+
+A Remake of Asteroids in Godot
+
+## History
+
+The arcade classic Asteroids was originally released in 1979 to immediate success. Published by Atari and arriving shortly after Space Invaders, Asteroids introduced players to a unique single player experience that dropped gamers into the middle of an asteroid field fighting for survival. The engaging gameplay captured arcade goers around world making the game a necessary cabinet in just about every arcade.
+
+
+Lynn Rains and Ed Logg developed the game using physics and hardware originally used for previous games and prototypes. Asteroids was heavily influenced by the space combat games that came before it, Spacewar!, Computer Space, and Space Invaders. The game delivered a single player experience unique to the time offering players high octane action with addictive gameplay where players can compete for a hi-score. The video game's success helped harness in a new age of gaming that gave people more reasons to spend time in the arcades. Asteroids is one of the most influential games of all time ushering in a new frontier of new interactive gameplay.
+
+## Gameplay
+
+Players control a space ship while shooting and avoiding asteroids. The more asteroids a player shoots, the more points the the player gets, with the objective being to get the highest score. Bigger asteroids explode into smaller asteroids allowing the player to shoot more objects to accumulate points. UFOs occasionally spawn with the ability to shoot a devastating deadly missile, the player needs to keep moving to stay out of the line of fire. The intense gameplay and smart mechanics made Asteroids one of the greatest games ever made.
+
+[Asteroids Wikipedia Page](https://en.wikipedia.org/wiki/Asteroids_(video_game))
+
+## Credits
 
 ### Music
 | Service | Song | Album | Artist | Artist Coffee |

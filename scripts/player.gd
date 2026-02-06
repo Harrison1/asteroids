@@ -82,23 +82,6 @@ func get_input():
 	var damp = 10.0 if input_strength else 1.0
 	velocity = velocity.move_toward(new_velocity, damp)
 	rotation_direction = Input.get_axis("turn_left", "turn_right")
-	#handle_thrust(input_strength)
-#
-#
-#func handle_thrust(thrust_pressed: bool) -> void:
-	#if thrust_pressed:
-		#animated_sprite_2d.frame = 1
-		#if tween and tween.is_running():
-			#tween.stop()
-		#if not thrust.playing:
-			#thrust.play()
-			#thrust.volume_db = 8.0
-	#else:
-		#animated_sprite_2d.frame = 0
-		#if thrust.playing:
-			#tween = create_tween()
-			#tween.tween_property(thrust, "volume_db", -80.0, 3.0)
-			#tween.tween_callback(thrust.stop)
 
 
 func fire_missile() -> void:

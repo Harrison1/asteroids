@@ -16,7 +16,7 @@ run/main_scene="uid://djxb6v4ajhypy"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 boot_splash/show_image=false
 boot_splash/use_filter=false
-config/icon="res://icon.svg"
+config/icon="uid://v2qq2d352xmp"
 
 [audio]
 
@@ -32,8 +32,6 @@ UIButtonSFX="*uid://cv4okgy5pmmsg"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/window_width_override=960
-window/size/window_height_override=540
 window/stretch/mode="canvas_items"
 
 [global_group]
