@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.6", "GL Compatibility")
 boot_splash/show_image=false
 boot_splash/use_filter=false
 config/icon="uid://v2qq2d352xmp"
+config/tags=PackedStringArray("2d")
 
 [audio]
 
